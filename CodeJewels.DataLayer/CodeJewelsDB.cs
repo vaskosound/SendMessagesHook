@@ -12,7 +12,7 @@ namespace CodeJewels.DataLayer
     {
 
         public CodeJewelsDB()
-            : base("CodeJewelsDB")
+            : base("ЕmailsDB")
         { 
         }
 
