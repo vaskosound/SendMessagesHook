@@ -39,17 +39,21 @@ namespace SendMailsHook.Controllers
                 var mailgunKeyName = "MAILGUN_API_KEY";
 
                 var mailClient = new MailgunClient("soundblaster.mailgun.org", ConfigurationManager.AppSettings[mailgunKeyName]);
-                var emails = this.entitySet;
-                foreach (var email in emails)
+                mailClient.SendMail(new System.Net.Mail.MailMessage("itgeorgehook@itgeorge.net", "vaskosound@abv.bg")
                 {
-                    mailClient.SendMail(new System.Net.Mail.MailMessage("itgeorgehook@itgeorge.net", email.EmailName)
-                    {
-                        Subject = appName,
-                        Body = commitMassage
-                    });
-                }
+                    Subject = appName,
+                    Body = commitMassage
+                });
+                //var emails = this.entitySet;
+                //foreach (var email in emails)
+                //{
+                //    mailClient.SendMail(new System.Net.Mail.MailMessage("itgeorgehook@itgeorge.net", email.EmailName)
+                //    {
+                //        Subject = appName,
+                //        Body = commitMassage
+                //    });
+                //}
             }
-
         }
 
         [ActionName("post-email")]
