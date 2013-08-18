@@ -38,7 +38,7 @@ namespace SendMailsHook.Controllers
                 string commitMassage = massage.Substring(0, endIndex - 1);
                 var mailgunKeyName = "MAILGUN_API_KEY";
 
-                var mailClient = new MailgunClient("soundblaster.mailgun.org", ConfigurationManager.AppSettings[mailgunKeyName]);
+                var mailClient = new MailgunClient("app17860.mailgun.org", ConfigurationManager.AppSettings[mailgunKeyName]);
                 mailClient.SendMail(new System.Net.Mail.MailMessage("itgeorgehook@itgeorge.net", "vaskosound@abv.bg")
                 {
                     Subject = appName,
