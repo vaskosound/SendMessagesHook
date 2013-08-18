@@ -31,14 +31,14 @@ namespace SendMailsHook.Controllers
                 var buildReport = JsonConvert.SerializeObject(content);
                 int startIndex = buildReport.IndexOf("name");
                 int endIndex = buildReport.IndexOf(',');
-                string appName = buildReport.Substring(startIndex + 7, endIndex - startIndex - 7);
+                string appName = buildReport.Substring(startIndex + 7, endIndex - startIndex - 8);
                 startIndex = buildReport.IndexOf("message");
                 string massage = buildReport.Substring(startIndex + 10);
                 endIndex = massage.IndexOf('}');
-                string commitMassage = massage.Substring(0, endIndex);
+                string commitMassage = massage.Substring(0, endIndex - 1);
                 var mailgunKeyName = "MAILGUN_API_KEY";
 
-                var mailClient = new MailgunClient("app14974.mailgun.org", ConfigurationManager.AppSettings[mailgunKeyName]);
+                var mailClient = new MailgunClient("soundblaster.mailgun.org", ConfigurationManager.AppSettings[mailgunKeyName]);
                 var emails = this.entitySet;
                 foreach (var email in emails)
                 {
